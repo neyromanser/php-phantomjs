@@ -21,7 +21,7 @@ use JonnyW\PhantomJs\Validator\EngineInterface;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class ProcedureValidatorTest extends \PHPUnit_Framework_TestCase
+class ProcedureValidatorTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

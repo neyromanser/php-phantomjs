@@ -16,7 +16,7 @@ use JonnyW\PhantomJs\Validator\Esprima;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class EsprimaTest extends \PHPUnit_Framework_TestCase
+class EsprimaTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

@@ -16,7 +16,7 @@ use JonnyW\PhantomJs\Http\RequestInterface;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class PdfRequestTest extends \PHPUnit_Framework_TestCase
+class PdfRequestTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

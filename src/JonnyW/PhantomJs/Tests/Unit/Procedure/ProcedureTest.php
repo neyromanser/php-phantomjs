@@ -26,7 +26,7 @@ use JonnyW\PhantomJs\Procedure\Procedure;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class ProcedureTest extends \PHPUnit_Framework_TestCase
+class ProcedureTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

@@ -15,7 +15,7 @@ use JonnyW\PhantomJs\Engine;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class EngineTest extends \PHPUnit_Framework_TestCase
+class EngineTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

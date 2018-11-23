@@ -27,7 +27,7 @@ use JonnyW\PhantomJs\Procedure\ProcedureLoader;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class ProcedureLoaderTest extends \PHPUnit_Framework_TestCase
+class ProcedureLoaderTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Test filename

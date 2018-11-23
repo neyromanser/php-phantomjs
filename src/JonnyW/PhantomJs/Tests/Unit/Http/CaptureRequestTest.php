@@ -16,7 +16,7 @@ use JonnyW\PhantomJs\Http\RequestInterface;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class CaptureRequestTest extends \PHPUnit_Framework_TestCase
+class CaptureRequestTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

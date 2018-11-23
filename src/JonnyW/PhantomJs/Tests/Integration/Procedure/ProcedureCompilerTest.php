@@ -17,7 +17,7 @@ use JonnyW\PhantomJs\DependencyInjection\ServiceContainer;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class ProcedureCompilerTest extends \PHPUnit_Framework_TestCase
+class ProcedureCompilerTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

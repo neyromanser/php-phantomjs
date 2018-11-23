@@ -158,7 +158,6 @@ class Client implements ClientInterface
         $procedure = $this->procedureLoader->load($this->procedure);
 
         $this->procedureCompiler->compile($procedure, $request);
-
         $procedure->run($request, $response);
 
         return $response;

@@ -15,7 +15,7 @@ use JonnyW\PhantomJs\Procedure\ChainProcedureLoader;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class ChainProcedureLoaderTest extends \PHPUnit_Framework_TestCase
+class ChainProcedureLoaderTest extends \PHPUnit\Framework\TestCase
 {
 
 /** +++++++++++++++++++++++++++++++++++ **/

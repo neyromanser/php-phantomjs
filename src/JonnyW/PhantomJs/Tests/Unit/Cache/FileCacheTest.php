@@ -15,7 +15,7 @@ use JonnyW\PhantomJs\Cache\FileCache;
  *
  * @author Jon Wenmoth <contact@jonnyw.me>
  */
-class FileCacheTest extends \PHPUnit_Framework_TestCase
+class FileCacheTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Test filename
