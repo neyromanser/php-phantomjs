@@ -2,8 +2,6 @@
 
 namespace JonnyW\PhantomJs;
 
-use JonnyW\PhantomJs\Client;
-use JonnyW\PhantomJs\Engine;
 use JonnyW\PhantomJs\Http\Request;
 use JonnyW\PhantomJs\Http\Response;
 use JonnyW\PhantomJs\Http\PdfRequest;
