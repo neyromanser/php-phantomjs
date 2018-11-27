@@ -298,6 +298,10 @@ class PhantomJs
      */
     public function send(RequestInterface $request, ResponseInterface $response = null) : ResponseInterface
     {
-        return $this->getClient()->send($request, ( is_null($response) ? new Response : $response ) );
+        $client = $this->getClient();
+        if(!$response)
+            $response = $client->getMessageFactory()->createResponse();
+
+        return $client->send($request, $response);
     }
 }

@@ -191,7 +191,6 @@ EOF;
 
         $client->send($request, $response);
 
-        var_dump( $response->getContent());
         $this->assertContains('ZACEPIL DESIGN', $response->getContent());
     }
 
