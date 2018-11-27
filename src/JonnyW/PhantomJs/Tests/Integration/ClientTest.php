@@ -191,6 +191,7 @@ EOF;
 
         $client->send($request, $response);
 
+        var_dump( $response->getContent());
         $this->assertContains('ZACEPIL DESIGN', $response->getContent());
     }
 
@@ -1028,7 +1029,7 @@ EOF;
             $serviceContainer->get('message_factory')
         );
 
-        $client->getEngine()->setPath('bin/phantomjs.exe');
+        $client->getEngine()->setPath('bin/phantomjs');
 
         return $client;
     }

@@ -46,6 +46,10 @@ class FileCache implements CacheInterface
     {
         $this->directory = rtrim($directory, DIRECTORY_SEPARATOR);
         $this->extension = $extension;
+
+        if ($this->directory && !is_writable($this->directory)) {
+            throw new NotWritableException(sprintf('Cache dir is not writable: %s', $directory));
+        }
     }
 
     /**

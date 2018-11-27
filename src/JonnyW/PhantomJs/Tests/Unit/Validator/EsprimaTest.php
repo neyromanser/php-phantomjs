@@ -32,7 +32,7 @@ class EsprimaTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidArgumentExceptionIsThrownIfFilePathIsNotLocalFile()
     {
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $fileLocator = $this->getFileLocator();
         $esprima     = $this->getEsprima($fileLocator, 'http://example.com');
@@ -49,7 +49,7 @@ class EsprimaTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidArgumentIsThrownIfFileDoesNotExist()
     {
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $fileLocator = $this->getFileLocator();
         $esprima     = $this->getEsprima($fileLocator, 'invalidFile.js');

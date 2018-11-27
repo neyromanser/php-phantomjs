@@ -104,7 +104,7 @@ class CaptureRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidMethodIsThrownIfMethodIsInvalid()
     {
-        $this->setExpectedException('\JonnyW\PhantomJs\Exception\InvalidMethodException');
+        $this->expectException('\JonnyW\PhantomJs\Exception\InvalidMethodException');
 
         $captureRequest = $this->getCaptureRequest();
         $captureRequest->setMethod('INVALID_METHOD');
@@ -473,7 +473,7 @@ class CaptureRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function testNotWritableExceptonIsThrownIfOutputPathIsNotWritable()
     {
-        $this->setExpectedException('\JonnyW\PhantomJs\Exception\NotWritableException');
+        $this->expectException('\JonnyW\PhantomJs\Exception\NotWritableException');
 
         $invalidPath = '/invalid/path';
 

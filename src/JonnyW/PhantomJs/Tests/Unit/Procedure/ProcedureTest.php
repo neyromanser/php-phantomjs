@@ -9,7 +9,8 @@
 namespace JonnyW\PhantomJs\Tests\Unit\Procedure;
 
 use Twig_Environment;
-use Twig_Loader_String;
+//use Twig_Loader_String;
+use Twig_Loader_Array;
 use JonnyW\PhantomJs\Engine;
 use JonnyW\PhantomJs\Cache\FileCache;
 use JonnyW\PhantomJs\Cache\CacheInterface;
@@ -88,7 +89,7 @@ class ProcedureTest extends \PHPUnit\Framework\TestCase
      */
     public function testNotWritableExceptionIsThrownIfProcedureScriptCannotBeWrittenToFile()
     {
-        $this->setExpectedException('\JonnyW\PhantomJs\Exception\NotWritableException');
+        $this->expectException('\JonnyW\PhantomJs\Exception\NotWritableException');
 
         $engne    = $this->getEngine();
         $parser   = $this->getParser();
@@ -112,7 +113,7 @@ class ProcedureTest extends \PHPUnit\Framework\TestCase
      */
     public function testProcedureFailedExceptionIsThrownIfProcedureCannotBeRun()
     {
-        $this->setExpectedException('\JonnyW\PhantomJs\Exception\ProcedureFailedException');
+        $this->expectException('\JonnyW\PhantomJs\Exception\ProcedureFailedException');
 
         $parser   = $this->getParser();
         $cache    = $this->getCache();
@@ -185,9 +186,8 @@ class ProcedureTest extends \PHPUnit\Framework\TestCase
      */
     protected function getRenderer()
     {
-        $twig = new Twig_Environment(
-            new Twig_Loader_String()
-        );
+//        $twig = new Twig_Environment(new Twig_Loader_String());
+        $twig = new Twig_Environment((new Twig_Loader_Array([])));
 
         $renderer = new TemplateRenderer($twig);
 
@@ -232,7 +232,8 @@ class ProcedureTest extends \PHPUnit\Framework\TestCase
      */
     protected function getEngine()
     {
-        $engine = $this->getMock('\JonnyW\PhantomJs\Engine');
+        $engine = $this->getMockBuilder('\JonnyW\PhantomJs\Engine')
+            ->getMock();
 
         return $engine;
     }

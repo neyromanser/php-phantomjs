@@ -39,7 +39,7 @@ class ProcedureLoaderFactoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidArgumentExceptionIsThrownIfDirectoryIsNotReadableWhenCreatingProcedureLoader()
     {
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $procedureFactory = $this->getProcedureFactory();
 
@@ -93,7 +93,8 @@ class ProcedureLoaderFactoryTest extends \PHPUnit\Framework\TestCase
      */
     protected function getProcedureFactory()
     {
-        $procedureFactory = $this->getMock('\JonnyW\PhantomJs\Procedure\ProcedureFactoryInterface');
+        $procedureFactory = $this->getMockBuilder('\JonnyW\PhantomJs\Procedure\ProcedureFactoryInterface')
+            ->getMock();
 
         return $procedureFactory;
     }

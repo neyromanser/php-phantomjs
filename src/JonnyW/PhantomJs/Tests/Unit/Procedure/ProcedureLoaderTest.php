@@ -9,7 +9,8 @@
 namespace JonnyW\PhantomJs\Tests\Unit\Procedure;
 
 use Twig_Environment;
-use Twig_Loader_String;
+//use Twig_Loader_String;
+use Twig_Loader_Array;
 use Symfony\Component\Config\FileLocatorInterface;
 use JonnyW\PhantomJs\Engine;
 use JonnyW\PhantomJs\Cache\FileCache;
@@ -58,7 +59,7 @@ class ProcedureLoaderTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidArgumentExceptionIsThrownIfProcedureFileIsNotLocal()
     {
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $procedureFactory = $this->getProcedureFactory();
         $fileLocator      = $this->getFileLocator();
@@ -79,7 +80,7 @@ class ProcedureLoaderTest extends \PHPUnit\Framework\TestCase
      */
     public function testNotExistsExceptionIsThrownIfProcedureFileDoesNotExist()
     {
-        $this->setExpectedException('\JonnyW\PhantomJs\Exception\NotExistsException');
+        $this->expectException('\JonnyW\PhantomJs\Exception\NotExistsException');
 
         $procedureFactory = $this->getProcedureFactory();
         $fileLocator      = $this->getFileLocator();
@@ -247,10 +248,8 @@ class ProcedureLoaderTest extends \PHPUnit\Framework\TestCase
      */
     protected function getRenderer()
     {
-        $twig = new Twig_Environment(
-            new Twig_Loader_String()
-        );
-
+//        $twig = new Twig_Environment(new Twig_Loader_String());
+        $twig = new Twig_Environment((new Twig_Loader_Array([])));
         $renderer = new TemplateRenderer($twig);
 
         return $renderer;
@@ -268,7 +267,8 @@ class ProcedureLoaderTest extends \PHPUnit\Framework\TestCase
      */
     protected function getFileLocator()
     {
-        $fileLocator = $this->getMock('\Symfony\Component\Config\FileLocatorInterface');
+        $fileLocator = $this->getMockBuilder('\Symfony\Component\Config\FileLocatorInterface')
+            ->getMock();
 
         return $fileLocator;
     }

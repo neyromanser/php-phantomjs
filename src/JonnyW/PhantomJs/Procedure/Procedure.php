@@ -109,7 +109,8 @@ class Procedure implements ProcedureInterface
                 $cmd = escapeshellcmd(str_replace('/', '\\', $cmd));
                 $process = proc_open($cmd, $descriptorspec, $pipes, null, null);
             }else{
-                $process = proc_open(escapeshellcmd(sprintf('%s %s', $this->engine->getCommand(), $executable)), $descriptorspec, $pipes, null, null);
+                $cmd = escapeshellcmd(sprintf('%s %s', $this->engine->getCommand(), $executable));
+                $process = proc_open($cmd, $descriptorspec, $pipes, null, null);
             }
 
             if (!is_resource($process)) {
