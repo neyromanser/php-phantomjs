@@ -104,9 +104,13 @@ class Procedure implements ProcedureInterface
                 array('pipe', 'w')
             );
 
-            $cmd = sprintf('%s %s', $this->engine->getCommand(), $executable);
-            $cmd = escapeshellcmd(str_replace('/', '\\', $cmd));
-            $process = proc_open($cmd, $descriptorspec, $pipes, null, null);
+            if(getenv("COMSPEC")) {
+                $cmd = sprintf('%s %s', $this->engine->getCommand(), $executable);
+                $cmd = escapeshellcmd(str_replace('/', '\\', $cmd));
+                $process = proc_open($cmd, $descriptorspec, $pipes, null, null);
+            }else{
+                $process = proc_open(escapeshellcmd(sprintf('%s %s', $this->engine->getCommand(), $executable)), $descriptorspec, $pipes, null, null);
+            }
 
             if (!is_resource($process)) {
                 throw new ProcedureFailedException('proc_open() did not return a resource');
