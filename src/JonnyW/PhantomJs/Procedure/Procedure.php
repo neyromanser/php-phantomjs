@@ -106,7 +106,8 @@ class Procedure implements ProcedureInterface
 
             if(getenv("COMSPEC")) {
                 $cmd = sprintf('%s %s', $this->engine->getCommand(), $executable);
-                $cmd = escapeshellcmd(str_replace('/', '\\', $cmd));
+                $cmd = str_replace('/', '\\', $cmd);
+                $cmd = escapeshellcmd(str_replace('\\\\', '//', $cmd));
                 $process = proc_open($cmd, $descriptorspec, $pipes, null, null);
             }else{
                 $cmd = escapeshellcmd(sprintf('%s %s', $this->engine->getCommand(), $executable));
