@@ -166,6 +166,37 @@ class Engine
     }
 
     /**
+     * Add or replace single PhantomJs run option.
+     *
+     * @access public
+     * @param  string                   $option
+     * @return \JonnyW\PhantomJs\Client
+     */
+    public function setOption($option)
+    {
+        list($key, $val) = explode('=', $option);
+        $options = [];
+        $exists = false;
+        foreach ($this->options as $item){
+            if(strpos($item, $key.'=') !== false){
+                $options[] = $option;
+                $exists = true;
+            }else{
+                $options[] = $item;
+            }
+        }
+
+
+        if (!$exists) {
+            $options[] = $option;
+        }
+
+        $this->options = $options;
+
+        return $this;
+    }
+
+    /**
      * Debug.
      *
      * @access public

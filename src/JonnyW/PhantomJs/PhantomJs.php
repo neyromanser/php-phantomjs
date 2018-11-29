@@ -163,6 +163,19 @@ class PhantomJs
     }
 
     /**
+     * Set option
+     *
+     * @param string $option
+     * @return PhantomJs
+     */
+    public function setOption(string $option)
+    {
+        $this->engine->setOption($option);
+
+        return $this;
+    }
+
+    /**
      * Set isLazy option to client
      *
      * @return $this
